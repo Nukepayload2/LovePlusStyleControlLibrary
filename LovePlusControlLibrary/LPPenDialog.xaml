@@ -1,0 +1,80 @@
+﻿<my:LPWindow x:Class="LPPenDialog"  xmlns:my="clr-namespace:LovePlusControlLibrary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  AngleWidth="20" ResizeThickness="12"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  FontSize="16" UseLayoutRounding="True"  Height="460" Width="514" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}"
+    Title="选择颜色" >
+    <Window.Resources>
+        <Style TargetType="TextBox" >
+            <Style.Setters>
+                <Setter Property="Template" >
+                    <Setter.Value>
+                        <ControlTemplate  TargetType="TextBox">
+                            <Border Height="23" CornerRadius="5" BorderThickness="2" BorderBrush="Cyan" VerticalAlignment="Bottom" >
+                                <my:TextBoxClone  x:Name="txtRed" TextWrapping="{TemplateBinding TextWrapping}" Text="{Binding Path=Text ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="0" SelectionBrush="Cyan"  />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="TextBlock" >
+            <Setter Property="IsHitTestVisible" Value="False" ></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="309*"/>
+            <ColumnDefinition Width="205"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="3" BorderBrush="Pink" CornerRadius="30"  Background="Pink" Name="PinkBorder" Grid.ColumnSpan="2">
+            <Border Background="White" CornerRadius="30">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="308*"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Name="RectDrag" Fill="White" Margin="10" Grid.ColumnSpan="2"></Rectangle>
+                    <my:LPButton Height="48" HorizontalAlignment="Right" Margin="0,0,24,10" x:Name="BtnOK" VerticalAlignment="Bottom" Width="96" Text="确 定" FontSize="20" PreviewMouseLeftButtonUp="BtnOK_PreviewMouseLeftButtonUp" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="31,7,0,0" TextWrapping="Wrap" Text="自定义画笔" VerticalAlignment="Top" />
+                    <Rectangle x:Name="RecPrev" Fill="Black"  HorizontalAlignment="Stretch" Height="87" Margin="7,47,12,0" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0" Cursor="Pen"/>
+                    <StackPanel Margin="8.552,20,20,0" VerticalAlignment="Top" Grid.Column="1" >
+                        <TextBlock>红</TextBlock>
+                        <TextBox x:Name="txtRed" TextWrapping="Wrap" Text="0" BorderThickness="0" SelectionBrush="Cyan"  />
+                        <TextBlock>绿</TextBlock>
+                        <TextBox x:Name="txtGreen" TextWrapping="Wrap" Text="0" BorderThickness="0" SelectionBrush="Cyan"  />
+                        <TextBlock>蓝</TextBlock>
+                        <TextBox x:Name="txtBlue" TextWrapping="Wrap" Text="0" BorderThickness="0" SelectionBrush="Cyan"  />
+                        <TextBlock>不透明度</TextBlock>
+                        <TextBox x:Name="txtTrans" TextWrapping="Wrap" Text="255" BorderThickness="0" SelectionBrush="Cyan"  />
+                        <TextBlock>粗细</TextBlock>
+                        <TextBox x:Name="txtWid" TextWrapping="Wrap" Text="1" BorderThickness="0" SelectionBrush="Cyan"  />
+                        <TextBlock>在下面试一试(右键清空)</TextBlock>
+                    </StackPanel>
+                    <Rectangle Margin="7,157,12,27" Stroke="Black" OverridesDefaultStyle="True" Cursor="Pen" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" StrokeThickness="0">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                                <GradientStop Color="Red" Offset="0"/>
+                                <GradientStop Color="Red" Offset="1"/>
+                                <GradientStop Color="Lime" Offset="0.333"/>
+                                <GradientStop Color="Blue" Offset="0.667"/>
+                                <GradientStop Color="Yellow" Offset="0.167"/>
+                                <GradientStop Color="Cyan" Offset="0.5"/>
+                                <GradientStop Color="Magenta" Offset="0.833"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Border   Margin="8,255,20,70"  Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                        <InkCanvas x:Name="InkPrev" HorizontalAlignment="Left"/>
+
+                    </Border>
+
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</my:LPWindow>

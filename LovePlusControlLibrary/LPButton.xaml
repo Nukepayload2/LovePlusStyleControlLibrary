@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="LPButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="68" d:DesignWidth="138" FontSize="25">
+    <Grid>
+        <Border BorderBrush="white" BorderThickness="3" CornerRadius="10" Background="White" Name="BackBorder"></Border>
+        <Border BorderBrush="Cyan" BorderThickness="3" Margin="2" CornerRadius="10" Name="OutterBorder">
+        </Border>
+        <Grid ClipToBounds="True" Margin="5">
+                    <Rectangle Margin="4" Name="TextBackground" RenderTransformOrigin="0.5,0.5" >
+                   
+                        <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.6,1" StartPoint="0.45,-0.4">
+                            <GradientStop Color="Cyan" Offset="0.407" />
+                            <GradientStop Color="#FF00C5FF" Offset="0.68" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    </Rectangle>
+                    <Border BorderBrush="White" BorderThickness="3" CornerRadius="10">
+                    <Grid ClipToBounds="True">
+                        
+                
+                         <TextBlock Text="这是按钮" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Name="TextDisplay">
+                             <TextBlock.Effect>
+                                 <DropShadowEffect BlurRadius="12" Direction="180" Color="#FF00A4FF" ShadowDepth="1"></DropShadowEffect>
+                             </TextBlock.Effect>
+                         </TextBlock>
+                    </Grid>
+                       
+                        
+                    </Border>
+             </Grid>
+
+
+    </Grid>
+</UserControl>

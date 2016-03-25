@@ -1,0 +1,62 @@
+﻿<local:LPWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  ResizeThickness="12" AngleWidth="18"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" FontSize="16"
+    xmlns:local="clr-namespace:LovePlusControlLibrary" x:Class="LPMatrixTransformDialog" UseLayoutRounding="True" 
+    Title="LPMatrixTransformDialog" Height="437" Width="800" AllowsTransparency="True" WindowStyle="None" BorderBrush="Purple" BorderThickness="2" Background="White">
+    <Window.Resources>
+        <Style TargetType="TextBlock" >
+            <Setter Property="IsHitTestVisible" Value="False" ></Setter>
+
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition Width="445*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Name="RcDrag" Fill="White" Grid.ColumnSpan="2"></Rectangle>
+        <local:LPButton x:Name="btnOK" HorizontalAlignment="Right" Height="49" Margin="0,0,10,38" VerticalAlignment="Bottom" FontSize="16" Width="112" Text="确定" Grid.Column="1"/>
+        <TextBlock  FontSize="20" HorizontalAlignment="Left"   Margin="25,10,0,0" TextWrapping="Wrap" Text="变换设置" VerticalAlignment="Top" Height="25" Width="80" />
+        <TextBlock FontWeight="bold" HorizontalAlignment="Left"  Margin="10,53,0,0" TextWrapping="Wrap" Text="平移" VerticalAlignment="Top" Height="20" Width="32" />
+        <local:LPTextBox x:Name="txtTransX" HorizontalAlignment="Left" Height="32" Margin="47,78,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="106"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="10,85,0,0" TextWrapping="Wrap" Text="水平" VerticalAlignment="Top" Height="20" Width="32" />
+        <TextBlock HorizontalAlignment="Left"  Margin="187,85,0,0" TextWrapping="Wrap" Text="竖直" VerticalAlignment="Top" Height="20" Width="32" />
+        <local:LPTextBox x:Name="txtTransY" HorizontalAlignment="Left" Height="32" Margin="224,78,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="106"/>
+        <TextBlock FontWeight="bold" HorizontalAlignment="Left"  Margin="10,134,0,0" TextWrapping="Wrap" Text="旋转" VerticalAlignment="Top" Height="20" Width="32" />
+        <local:LPTextBox x:Name="txtRotate" HorizontalAlignment="Left" Height="32" Margin="10,159,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="242"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="269,166,0,0" TextWrapping="Wrap" Text="度" VerticalAlignment="Top" Height="20" Width="32" />
+        <TextBlock FontWeight="bold" HorizontalAlignment="Left"  Margin="10,224,0,0" TextWrapping="Wrap" Text="倾斜" VerticalAlignment="Top" Height="20" Width="32" RenderTransformOrigin="0.5,0.5" >
+
+        </TextBlock>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="10,196,0,0" VerticalAlignment="Top" Width="320" Maximum="360" Minimum="-360" Value="{Binding ElementName=txtRotate, Path=Text ,Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPTextBox x:Name="txtSkewX" HorizontalAlignment="Left" Height="32" Margin="47,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="91"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="10,260,0,0" TextWrapping="Wrap" Text="水平" VerticalAlignment="Top" Height="20" Width="32" />
+        <TextBlock HorizontalAlignment="Left"  Margin="143,260,0,0" TextWrapping="Wrap" Text="度    竖直" VerticalAlignment="Top" Height="20" Width="71" />
+        <local:LPTextBox x:Name="txtSkewY" HorizontalAlignment="Left" Height="32" Margin="214,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="87"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="305,260,0,0" TextWrapping="Wrap" Text="度" VerticalAlignment="Top" Height="20" Width="19" />
+        <TextBlock FontWeight="bold" HorizontalAlignment="Left"  Margin="5,308,0,0" TextWrapping="Wrap" Text="原点" VerticalAlignment="Top" Height="20" Width="32" RenderTransformOrigin="0.5,0.5" Grid.Column="1" />
+        <local:LPTextBox x:Name="txtCenterX" HorizontalAlignment="Left" Height="32" Margin="36,344,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="9,351,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Height="20" Width="22" Grid.Column="1" />
+        <TextBlock HorizontalAlignment="Left"  Margin="182,351,0,0" TextWrapping="Wrap" Text="Y" VerticalAlignment="Top" Height="20" Width="22" Grid.Column="1" />
+        <local:LPTextBox x:Name="txtCenterY" HorizontalAlignment="Left" Height="32" Margin="213,344,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+        <TextBlock FontSize="14" TextOptions.TextFormattingMode="Display"  HorizontalAlignment="Left" Height="27" Margin="52,308,0,0" TextWrapping="Wrap" Text="取值0到1，是旋转和倾斜的中心点。" VerticalAlignment="Top" Width="227" Grid.Column="1"/>
+        <local:LPHeart x:Name="ctlPrev" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="172,128,0,0" VerticalAlignment="Top" Width="100"/>
+        <local:LPHeart Opacity="0.4" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="172,128,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock FontWeight="bold" HorizontalAlignment="Left"  Margin="28,53,0,0" TextWrapping="Wrap" Text="预览" VerticalAlignment="Top" Height="20" Width="32" Grid.Column="1" />
+        <TextBlock FontWeight="bold" HorizontalAlignment="Left"  Margin="10,308,0,0" TextWrapping="Wrap" Text="缩放" VerticalAlignment="Top" Height="20" Width="32" />
+        <local:LPTextBox x:Name="txtScaleX" HorizontalAlignment="Left" Height="32" Margin="47,344,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="106"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="10,351,0,0" TextWrapping="Wrap" Text="水平" VerticalAlignment="Top" Height="20" Width="32" />
+        <TextBlock HorizontalAlignment="Left"  Margin="187,351,0,0" TextWrapping="Wrap" Text="竖直" VerticalAlignment="Top" Height="20" Width="32" />
+        <local:LPTextBox x:Name="txtScaleY" HorizontalAlignment="Left" Height="32" Margin="224,344,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="106"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="10,376,0,-3" VerticalAlignment="Top" Width="153" Maximum="5" Minimum="-5" Value="{Binding Text, ElementName=txtScaleX , Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="177,376,0,-3" VerticalAlignment="Top" Width="153" Maximum="5" Minimum="-5" Value="{Binding Text, ElementName=txtScaleY , Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="10,290,0,0" VerticalAlignment="Top" Width="153" Maximum="360" Minimum="-360" Value="{Binding Text, ElementName=txtSkewX , Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="177,290,0,0" VerticalAlignment="Top" Width="153" Maximum="360" Minimum="-360" Value="{Binding Text, ElementName=txtSkewY , Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="10,111,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="-100" Value="{Binding Text, ElementName=txtTransX, Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="177,111,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="-100" Value="{Binding Text, ElementName=txtTransY, Mode=TwoWay,StringFormat={}{0:F1}}"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="5,376,0,-3" VerticalAlignment="Top" Width="153" Maximum="1" Minimum="0" TickFrequency="0.1" Value="{Binding Text, ElementName=txtCenterX, Mode=TwoWay,StringFormat={}{0:F1}}" Grid.Column="1"/>
+        <local:LPSlider HorizontalAlignment="Left" Height="23" Margin="172,376,0,-3" VerticalAlignment="Top" Width="153" Maximum="1" Minimum="0" TickFrequency="0.1" Value="{Binding Text, ElementName=txtCenterY, Mode=TwoWay,StringFormat={}{0:F1}}" Grid.Column="1"/>
+
+    </Grid>
+</local:LPWindow>

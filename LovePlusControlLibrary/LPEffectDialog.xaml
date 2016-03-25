@@ -1,0 +1,59 @@
+﻿<local:LPWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  ResizeThickness="12" AngleWidth="18"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:LovePlusControlLibrary" x:Class="LPEffectDialog"
+    UseLayoutRounding="True" BorderBrush="Cyan" Background="White" 
+    Title="LPEffectDialog" Height="394" Width="603"   BorderThickness="2" AllowsTransparency="True" WindowStyle="None">
+    <Window.Resources>
+        <Style TargetType="TextBlock" >
+            <Setter Property="IsHitTestVisible" Value="False" ></Setter>
+            
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="237*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="White" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" ></Rectangle>
+        <local:LPRadioButton x:Name="radSmooth" Content="模糊特效" HorizontalAlignment="Left"   Margin="40,30,0,0" VerticalAlignment="Top" IsChecked="True" />
+        <local:LPRadioButton x:Name="radDropShadow" Content="阴影和光晕特效" HorizontalAlignment="Left"   Margin="40,10,0,0" VerticalAlignment="Top" Grid.Row="1" />
+        <StackPanel Margin="10,50,10,0">
+            <TextBlock TextWrapping="Wrap" Text="模糊范围"/>
+            <local:LPTextBox x:Name="txtBlurRadius" TextWrapping="Wrap" Text="5"/>
+        </StackPanel>
+        <StackPanel Margin="10,29,10,10" Grid.Row="1">
+            <TextBlock TextWrapping="Wrap" Text="方向"/>
+            <local:LPTextBox x:Name="txtDirection" TextWrapping="Wrap" Text="315"/>
+            <TextBlock TextWrapping="Wrap" Text="深度"/>
+            <local:LPTextBox x:Name="txtShadowDepth" TextWrapping="Wrap" Text="3"/>
+            <TextBlock TextWrapping="Wrap" Text="阴影/光晕模糊范围"/>
+            <local:LPTextBox x:Name="txtShadowBlurRadius" TextWrapping="Wrap" Text="5"/>
+            <TextBlock TextWrapping="Wrap" Text="颜色"/>
+            <local:LPButton x:Name="btnSelColor" Text="选择颜色" FontSize="14"></local:LPButton>
+            <TextBlock TextWrapping="Wrap" Text="不透明度"/>
+            <local:LPTextBox x:Name="txtOpecity" TextWrapping="Wrap" Text="1"/>
+            <Rectangle Name="rectPrev" Height="10" Fill="Black"></Rectangle>
+        </StackPanel>
+        <Label x:Name="radSmooth_Copy" Content="自己通过PixelShader建立的特效" HorizontalAlignment="Right"   Margin="0,10,83,0" VerticalAlignment="Top" Grid.Column="1"  />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Right"  Margin="0,39,113,0" VerticalAlignment="Top"  Text="手动编辑xaml以启用" FontSize="16"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  Margin="46,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="预览" VerticalAlignment="Top"  />
+        <local:LPButton x:Name="btnOK" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"   Margin="3" Grid.Row="1" Text="确定" FontSize="16" TextPadding="6"/>
+        <local:LPButton x:Name="btnClearEffects" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Bottom"   Margin="3" Grid.Row="1" Text="无任何特效" FontSize="16" TextPadding="6"/>
+        <TextBlock x:Name="tblPrev" Grid.Column="1" HorizontalAlignment="Left" Height="136" Margin="38,43,0,0" Grid.Row="1" TextWrapping="Wrap" Text="红警杀，杀天下！Nukepayload2" FontSize="22" VerticalAlignment="Top" Width="251">
+            <TextBlock.Effect>
+                <BlurEffect/>
+            </TextBlock.Effect>
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="#FFF3FF00" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20,2,0,0" FontSize="16" TextWrapping="Wrap" Text="特效设置" VerticalAlignment="Top" Width="74"/>
+    </Grid>
+</local:LPWindow>

@@ -1,0 +1,37 @@
+﻿<local:LPWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  ResizeThickness="12" AngleWidth="18"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" UseLayoutRounding="True" BorderBrush="Yellow"  Background="White"  BorderThickness="2" AllowsTransparency="True" WindowStyle="None"
+    xmlns:local="clr-namespace:LovePlusControlLibrary" x:Class="LPFontDialog"
+    Title="LPFontDialog" Height="406" Width="528">
+    <Window.Resources>
+        <CollectionViewSource x:Key="sysFonts" Source="{x:Static Fonts.SystemFontFamilies}"></CollectionViewSource>
+        <Style TargetType="TextBlock" >
+            <Setter Property="IsHitTestVisible" Value="False" ></Setter>
+
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle x:Name="RactDrag" Fill="White" Grid.ColumnSpan="2"></Rectangle>
+        <local:LPButton x:Name="btnOK" HorizontalAlignment="Right" Height="41" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="114" FontSize="16" Text="确认" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="20,10,0,0" TextWrapping="Wrap" Text="字体" VerticalAlignment="Top"  FontSize="20" FontWeight="bold" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"   Margin="0,34,0,0" TextWrapping="Wrap" Text="预览" VerticalAlignment="Top"  />
+        <TextBlock  x:Name="tblPrev" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="珠联璧合_Nukepayload2" VerticalAlignment="Center"  />
+        <TextBlock HorizontalAlignment="Left"  Margin="20,40,0,0" TextWrapping="Wrap" Text="大小" VerticalAlignment="Top"  FontSize="18" FontWeight="bold" />
+        <local:LPTextBox x:Name="txtFontsize" HorizontalAlignment="Left" Height="30" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Text="{Binding ElementName=tblPrev, Path=FontSize, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged }"/>
+        <local:LPSlider x:Name="sldFontsize" HorizontalAlignment="Left" Height="30" Margin="10,103,0,0" VerticalAlignment="Top" Width="180" Maximum="1000" Value="{Binding ElementName=tblPrev, Path=FontSize, Mode=TwoWay }"/>
+        <TextBlock HorizontalAlignment="Left"  Margin="20,133,0,0" TextWrapping="Wrap" Text="样式" VerticalAlignment="Top"  FontSize="18" FontWeight="bold" />
+        <CheckBox x:Name="chkBold" Content="粗" HorizontalAlignment="Left"  Margin="9,161,0,0" VerticalAlignment="Top"  />
+        <CheckBox x:Name="chkIt" Content="斜" HorizontalAlignment="Left"  Margin="50,161,0,0" VerticalAlignment="Top"  />
+        <CheckBox x:Name="chkUnd" Content="下划线" HorizontalAlignment="Left"  Margin="85,161,0,0" VerticalAlignment="Top"  />
+        <CheckBox x:Name="chkDel" Content="删除线" HorizontalAlignment="Left"  Margin="143,161,0,0" VerticalAlignment="Top"  />
+        <TextBlock HorizontalAlignment="Left"  Margin="20,187,0,0" TextWrapping="Wrap" Text="家族" VerticalAlignment="Top"  FontSize="18" FontWeight="bold" />
+        <ListBox x:Name="lstFontFamily" SelectedItem="{Binding ElementName=tblPrev , Path=FontFamily  ,Mode=TwoWay }"  HorizontalAlignment="Left" Height="100" Margin="10,215,0,0" VerticalAlignment="Top" Width="189" ItemsSource="{Binding Source={StaticResource sysFonts}}" />
+        <TextBlock HorizontalAlignment="Left"  Margin="20,320,0,0" TextWrapping="Wrap" Text="显示" VerticalAlignment="Top"  FontSize="18" FontWeight="bold" />
+        <CheckBox x:Name="chkIsGDI" Content="使用GDI风格文字(小字体清晰)" HorizontalAlignment="Left"  Margin="10,351,0,0" VerticalAlignment="Top"  />
+    </Grid>
+</local:LPWindow>

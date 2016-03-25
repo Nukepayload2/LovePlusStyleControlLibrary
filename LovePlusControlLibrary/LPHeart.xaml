@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="LPHeart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Grid Name="G1">
+        <Grid.CacheMode>
+            <BitmapCache/>
+        </Grid.CacheMode>
+        <Path Stroke="Pink"  StrokeThickness="0" Data="M50,90 C50,80 15,70 10,40 C10,00 50,10 50,20 C60,00 90,10 90,40 C80,70 65,70 50,90" Name="HeartBack" Fill="Pink">
+            
+        </Path>
+        <Path Stroke="White" StrokeThickness="2" Data="M50,90 C50,80 15,70 10,40 C10,00 50,10 50,25 C60,00 90,10 90,40 C80,70 65,70 50,90" Name="HeartWhiteLine" Fill="Pink">
+            <Path.RenderTransform>
+                <ScaleTransform ScaleX="0.85" ScaleY="0.85"></ScaleTransform>
+            </Path.RenderTransform>
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+        </Path>
+        
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="GET!!" FontSize="30" Margin="0,0,0,10" FontWeight="ExtraBold" Foreground="#FFFF6100" Name="t1">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="White" Opacity="1" Direction="0"></DropShadowEffect>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="GET!!" FontSize="30" Margin="0,0,0,10" FontWeight="ExtraBold" Foreground="#FFFF6100" Name="t2">
+        <TextBlock.Effect><DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="White" Opacity="1" Direction="90"></DropShadowEffect>
+                 </TextBlock.Effect>
+        </TextBlock>
+<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="GET!!" FontSize="30" Margin="0,0,0,10" FontWeight="ExtraBold" Foreground="#FFFF6100" Name="t4">
+        <TextBlock.Effect><DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="White" Opacity="1" Direction="270"></DropShadowEffect>
+                 </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="GET!!" FontSize="30" Margin="0,0,0,10" FontWeight="ExtraBold" Foreground="#FFFF6100" Name="t3">
+        <TextBlock.Effect><DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="White" Opacity="1" Direction="180"></DropShadowEffect>
+                 </TextBlock.Effect>
+        </TextBlock>
+    </Grid>
+</UserControl>

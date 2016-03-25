@@ -1,0 +1,26 @@
+﻿<my:LPWindow xmlns:my="clr-namespace:LovePlusControlLibrary"  x:Class="LPMessageBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" AngleWidth="20" ResizeThickness="20"
+    Title="LPMessageBox"  AllowsTransparency="True" Background="{x:Null}" WindowStyle="None"  FontSize="20" MinHeight="200" MinWidth="200" UseLayoutRounding="True" SnapsToDevicePixels="True" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid>
+        <my:LPHeart Height="90" x:Name="HeartControl1" Width="100" Margin="-5,-5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Panel.ZIndex="1" RenderTransformOrigin="0.5,0.5" >
+            <my:LPHeart.RenderTransform>
+                <RotateTransform Angle="-15"></RotateTransform>
+            </my:LPHeart.RenderTransform>
+        </my:LPHeart>
+        <Border BorderThickness="0" BorderBrush="White" CornerRadius="30" Margin="7,22,2,2" Background="White">
+
+        </Border>
+        <Border BorderThickness="3" BorderBrush="Pink" CornerRadius="30" Margin="10,25,5,5" Background="Pink" Name="PinkBorder">
+            <Border Background="White" CornerRadius="30">
+                <Grid>
+                    <Rectangle Name="RectDrag" Fill="White" Margin="10"></Rectangle>
+                    <my:LPButton Height="48" HorizontalAlignment="Center" Margin="0,0,0,5" x:Name="BtnOK" VerticalAlignment="Bottom" Width="96" Text="确 定" FontSize="20" />
+                    <my:LPButton Height="48" HorizontalAlignment="Center" Margin="81,0,273,5" x:Name="btnYes" Text="是" VerticalAlignment="Bottom" Width="96" FontSize="20" />
+                    <my:LPButton Height="48" HorizontalAlignment="Center" Margin="269,0,80,5" x:Name="btnNo" Text="否" VerticalAlignment="Bottom" Width="96" FontSize="20" />
+                    <TextBlock Margin="50,51,50,63" Name="MsgText" Text="消息文本" TextAlignment="Center" TextWrapping="Wrap" />
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</my:LPWindow>
